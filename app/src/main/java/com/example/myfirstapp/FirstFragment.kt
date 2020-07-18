@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 
 /**
@@ -24,8 +25,16 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.button_first).setOnClickListener {
+        view.findViewById<Button>(R.id.random_button).setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        }
+
+        // find the toast_button by its ID and set a click listener
+        view.findViewById<Button>(R.id.toast_button).setOnClickListener {
+            // create a Toast with some text, to appear for a short time
+            val myToast = Toast.makeText(context, "Hello Toast!", Toast.LENGTH_SHORT)
+            // show the Toast
+            myToast.show()
         }
     }
 }
